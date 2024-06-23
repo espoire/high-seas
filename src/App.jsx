@@ -1,14 +1,14 @@
 import "./App.css";
-import FrameworkTag from "./FrameworkTag.jsx";
-import Scene from "./Scene.jsx";
-import Splash from "./Splash.jsx";
+import FrameworkTag from "./components/FrameworkTag.jsx";
+import Scene from "./components/Scene.jsx";
+import SplashPage from "./components/SplashPage.jsx";
 
 export default function App() {
   return (
     <>
       <Scene />
       <FrameworkTag />
-      <Splash />
+      <SplashPage />
     </>
   );
 }
