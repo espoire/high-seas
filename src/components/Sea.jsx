@@ -36,16 +36,21 @@ function SeaLayer({ depth, maxDepth }) {
     window.addEventListener('resize', handleResize)
   })
 
-  const height = interpolate(depth + 1, 1, maxDepth, 50, 10, (x) => x * x);
+  const height = interpolate(depth, 0, maxDepth, 50, 0, (x) => x * x);
   const ripples = Math.ceil(50 / depth);
+  const animateDuration = fancyToFixed(
+    interpolate(depth, 0, maxDepth, 20, 4),
+    2
+  ) + 's';
   
   let opacity = 0.3;
   if (depth > 0) {
-    const step = (0.9 - 0.3) / (maxDepth - 1);
-    const target = 0.3 + step * depth;
+    const step = (0.9 - 0.3) / (maxDepth);
     const previous = 0.3 + step * (depth - 1);
     opacity = (step / (1 - previous));
   }
+
+  const strokeOpacity = interpolate(depth, 0, maxDepth, 0, 0.2);
 
   let rippleSize = 100 / ripples;
 
@@ -69,11 +74,12 @@ function SeaLayer({ depth, maxDepth }) {
       <animate
           attributeName="viewBox"
           begin="0s"
-          dur="4s"
+          dur={animateDuration}
           from={`0 0 100 ${height / aspect}`}
           to={`${rippleSize} 0 100 ${height / aspect}`}
           repeatCount="indefinite" />
       <path d={clipPath} />
+      <path d={clipPath} fill="none" stroke="#2b65ec" strokeWidth="0.3" strokeOpacity={strokeOpacity} />
     </svg>
   )
 }

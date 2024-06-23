@@ -54,7 +54,7 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-  animation: fade-out 2s 4s both;
+  animation: fade-out 2s 8s both;
 
   p {
     margin: 0;
@@ -90,7 +90,9 @@
   width: fit-content;
 
   text-align: right;
-  background-color: #000000DB;
+  background-color: #242424DB;
+  border-left: 1px solid #444D;
+  border-bottom: 1px solid #444D;
   padding: 0.1em 0.5em 0.2em;
   border-radius: 0 0 0 0.6em;
 

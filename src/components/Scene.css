@@ -1,0 +1,44 @@
+@keyframes dayNightColors {
+  0% { background-color: skyblue; }
+  35% { background-color: skyblue; }
+  45% { background-color: orange; }
+  50% { background-color: red; }
+  65% { background-color: midnightblue; }
+  100% { background-color: black; }
+}
+
+.sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: dayNightColors 30s 10s infinite alternate both;
+}
+
+.sea {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  fill: #2b65ec;
+}
+
+@keyframes boatHullDayNightColors {
+  0% { stop-color: #48e; }
+  35% { stop-color: #48e; }
+  60% { stop-color: #24a;}
+  100% { stop-color: #24a;}
+}
+
+@keyframes rock {
+  from { rotate: calc(-0.5 * var(--rockMagnitude)); }
+  to { rotate: calc(0.5 * var(--rockMagnitude)); }
+}
+
+.boat {
+  position: absolute;
+  width: 20dvmin;
+  height: 20dvmin;
+  translate: -50% -50%;
+  left: 50%;
+  --rockMagnitude: 5deg;
+  animation: rock 2s linear alternate infinite;
+}

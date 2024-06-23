@@ -1,11 +1,12 @@
-import "../Scene.css";
+import "./Scene.css";
 import Sea from "./Sea.jsx";
+import Sky from "./Sky.jsx";
 
 export default function Scene() {
   return (
     <>
-      <div className="sky"></div>
-      <Sea layers="10" />
+      <Sky />
+      <Sea layers="11" />
     </>
   );
 }
