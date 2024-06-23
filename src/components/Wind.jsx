@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { interpolate } from "../util/interpolate.js";
 import { fancyToFixed, squared } from "../util/util.js";
-import { randomHigh, roundRandom } from "../util/random.js";
+import { randomHigh, randomRange, roundRandom } from "../util/random.js";
 
 /**
  * @param {{ intensity: number }} param0
@@ -65,7 +65,7 @@ class WindParticle {
 
     const width = interpolate(distance, 0, 1, 8, 1, Math.sqrt);
     const tailLength = interpolate(intensity, 0, 1, 4, 100, squared);
-    const top = fancyToFixed(Math.random() * 100, 2) + '%';
+    const top = fancyToFixed(randomRange(0, 100 - 50 * distance), 2) + '%';
 
     this.jsx = (
       <svg

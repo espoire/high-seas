@@ -23,3 +23,8 @@ export function randomHigh(randomFunc) {
     (randomFunc || Math.random)()
   );
 }
+
+export function randomRange(low, high, randomFunc) {
+  const roll = (randomFunc || Math.random)();
+  return low + (high - low) * roll;
+}
