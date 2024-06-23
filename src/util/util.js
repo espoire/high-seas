@@ -2,6 +2,10 @@ export function echo(x) {
   return x;
 }
 
+export function squared(x) {
+  return x * x;
+}
+
 export function isNumber(x) {
   return typeof x === 'number' && !isNaN(x)
 }

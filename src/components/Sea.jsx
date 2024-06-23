@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { interpolate } from "../util/interpolate.js";
-import { fancyToFixed } from "../util/util.js";
+import { fancyToFixed, squared } from "../util/util.js";
 import Boat from "./Boat.jsx";
 
 /**
@@ -36,7 +36,7 @@ function SeaLayer({ depth, maxDepth }) {
     window.addEventListener('resize', handleResize)
   })
 
-  const height = interpolate(depth, 0, maxDepth, 50, 0, (x) => x * x);
+  const height = interpolate(depth, 0, maxDepth, 50, 0, squared);
   const ripples = Math.ceil(50 / depth);
   const animateDuration = fancyToFixed(
     interpolate(depth, 0, maxDepth, 20, 4),
