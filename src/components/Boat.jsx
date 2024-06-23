@@ -12,7 +12,6 @@ export default function Boat({ seaLayers }) {
         <linearGradient id="boatHullGradient" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stopColor="blue" />
           <stop offset="75%" stopColor="#00f0" />
-          {/* <stop offset="75%" style={{animation: 'boatHullDayNightColors 30s 10s infinite alternate' }} /> */}
         </linearGradient>
       </defs>
       <path d="M 0 65 H 100 A 50, 35 0, 0, 1, 0, 65 Z" fill="url(#boatHullGradient)" />
