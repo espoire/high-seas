@@ -1,9 +1,10 @@
 @keyframes dayNightColors {
-  0% { background-color: skyblue; }
-  35% { background-color: skyblue; }
-  45% { background-color: orange; }
-  50% { background-color: red; }
-  65% { background-color: midnightblue; }
+    0% { background-color: skyblue; }
+   50% { background-color: skyblue; }
+   55% { background-color: orange; }
+   60% { background-color: red; }
+   65% { background-color: midnightblue; }
+   80% { background-color: black; }
   100% { background-color: black; }
 }
 
@@ -11,7 +12,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  animation: dayNightColors 30s 10s infinite alternate both;
+  animation: dayNightColors 90s linear 10s infinite alternate both;
 }
 
 .sea {
