@@ -39,7 +39,7 @@ function SeaLayer({ depth, maxDepth, wind }) {
   const height = interpolate(depth, 0, maxDepth, 50, 0, squared);
   const ripples = Math.ceil(50 / depth);
   const animateDuration = fancyToFixed(
-    interpolate(depth, 0, maxDepth, 20, 4),
+    interpolate(depth, 0, maxDepth, 2.5, 0.5) / (wind * 0.98 + 0.02),
     2
   ) + 's';
   
