@@ -6,6 +6,7 @@
 ✅ Weather System
 
 Water "spikiness" scales with wind
+Water scroll rate scales with wind
 Boat rocking-ness scales with wind
 High Seas
   In very high wind, the "water level" rises and fluctuates

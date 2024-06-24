@@ -1,7 +1,7 @@
 import { randomLow } from "../util/random.js";
 
 export default class WeatherState {
-  current = {
+  active = {
     overcast: 1,
     wind: 0.1,
   }
@@ -21,12 +21,12 @@ export default class WeatherState {
       this.target[key] = WeatherState.targetGenerators[key]();
     }
 
-    for (const key in this.current) {
-      const diff = this.target[key] - this.current[key];
-      this.current[key] += diff / 50;
+    for (const key in this.active) {
+      const diff = this.target[key] - this.active[key];
+      this.active[key] += diff / 50;
     }
 
-    console.log('Current: ', this.current.overcast.toFixed(2));
+    console.log('Current: ', this.active.overcast.toFixed(2));
     // console.log('Targets: ', this.target);
   }
 }

@@ -52,7 +52,6 @@
 .windParticle {
   position: absolute;
   translate: -100% -50%;
-  /* animation: windBlow 4s linear 0.5s both; */
   stroke: #FFF8;
   stroke-linecap: round;
 }

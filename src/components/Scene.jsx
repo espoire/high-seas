@@ -6,27 +6,26 @@ import Wind from "./Wind.jsx";
 import { useEffect, useRef, useState } from "react";
 import WeatherState from "./WeatherState.js";
 
-const weather = new WeatherState();
-
 export default function Scene() {
-  const [ overcast, setOvercast ] = useState(weather.current.overcast);
-  const [ wind, setWind ] = useState(weather.current.wind);
+  const weather = useRef(new WeatherState())
+  const [ overcast, setOvercast ] = useState(weather.current.active.overcast);
+  const [ wind, setWind ] = useState(weather.current.active.wind);
 
   const interval = useRef(null);
   useEffect(() => {
-    weather.update();
+    weather.current.update();
 
     if (interval.current == null) interval.current = setInterval(() => {
-      weather.update();
-      setOvercast(weather.current.overcast);
-      setWind(weather.current.wind);
+      weather.current.update();
+      setOvercast(weather.current.active.overcast);
+      setWind(weather.current.active.wind);
     }, 100)
   })
 
   return (
     <>
       <Sky overcast={overcast} />
-      <Sea layers="11" />
+      <Sea layers="11" wind={wind} />
       <Fog overcast={overcast} />
       <Wind wind={wind} />
     </>
