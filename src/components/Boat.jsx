@@ -4,13 +4,15 @@ import { fancyToFixed } from "../util/util.js";
 export default function Boat({ seaLayers }) {
   const layerAt = Math.floor(2 * seaLayers / 3) + 1;
   const height = interpolate(layerAt, 1, seaLayers, 50, 0, (x) => x * x);
-  const top = fancyToFixed(100 - height, 2) + '%';
+  const top = fancyToFixed(100 - height - 1.5, 2) + '%';
 
   return (
     <svg className="boat" style={{ top }} viewBox="0 0 100 100">
       <defs>
         <linearGradient id="boatHullGradient" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stopColor="blue" />
+          <stop offset="25%" stopColor="#00f4" />
+          <stop offset="50%" stopColor="#00f1" />
           <stop offset="75%" stopColor="#00f0" />
         </linearGradient>
       </defs>

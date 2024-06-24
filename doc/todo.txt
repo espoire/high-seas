@@ -7,7 +7,7 @@
 
 Stars at night
 
-Water "spikiness" scales with wind
+✅ Water "spikiness" scales with wind
 Water scroll rate scales with wind
 Boat rocking-ness scales with wind
 High Seas

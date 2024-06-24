@@ -4,14 +4,14 @@ import { fancyToFixed, squared } from "../util/util.js";
 import Boat from "./Boat.jsx";
 
 /**
- * @param {{ layers: number }} param0
+ * @param {{ layers: number, wind: number }} param0
  */
-export default function Sea({ layers }) {
+export default function Sea({ layers, wind }) {
   const content = [];
   for (let i = 0; i < layers; i++) {
-    content.push(<SeaLayer depth={i} maxDepth={layers} key={i} />);
+    content.push(<SeaLayer key={i} depth={i} maxDepth={layers} wind={wind} />);
     if (i === Math.floor(2 * layers / 3)) {
-      content.push(<Boat seaLayers={layers} key="boat" />)
+      content.push(<Boat key="boat" seaLayers={layers} />)
     }
   }
 
@@ -21,9 +21,9 @@ export default function Sea({ layers }) {
 }
 
 /**
- * @param {{ depth: number, maxDepth: number }} param0
+ * @param {{ depth: number, maxDepth: number, wind: number }} param0
  */
-function SeaLayer({ depth, maxDepth }) {
+function SeaLayer({ depth, maxDepth, wind }) {
   const [aspect, setAspect] = useState(
     window.innerWidth / window.innerHeight
   )
@@ -55,7 +55,7 @@ function SeaLayer({ depth, maxDepth }) {
   let rippleSize = 100 / ripples;
 
   const halfSize = fancyToFixed(rippleSize / 2, 2);
-  const thirdSize = fancyToFixed(rippleSize / 3, 2);
+  const spikiness = fancyToFixed(rippleSize / 2 * (wind * 0.95 + 0.05), 2);
   rippleSize = fancyToFixed(rippleSize, 2);
 
   let ripplePaths = [];
@@ -63,7 +63,7 @@ function SeaLayer({ depth, maxDepth }) {
     ripplePaths.push('H 100');
   } else {
     for (let i = 0; i <= ripples; i++) {
-      ripplePaths.push(`c ${halfSize} ${thirdSize}, ${halfSize} ${thirdSize}, ${rippleSize} 0`);
+      ripplePaths.push(`c ${halfSize} ${spikiness}, ${halfSize} ${spikiness}, ${rippleSize} 0`);
     }
   }
 
