@@ -52,9 +52,9 @@ class WindParticle {
    * @param {number} intensity
    */
   constructor(id, now, intensity) {
-    const distance = randomHigh();
+    const distance = Math.random();
     const delay = Math.random();
-    const duration = interpolate(distance, 0, 1, 0.5, 15) / intensity;
+    const duration = interpolate(distance, 0, 1, 0.25, 5) / (intensity * 0.8 + 0.2);
     
     const until = (delay + duration) * 1000;
 
@@ -68,9 +68,9 @@ class WindParticle {
       <svg
         key={id}
         className="windParticle"
-        width={width + tailLength}
+        width={width * tailLength}
         height={width}
-        viewBox={`${(-width/2).toFixed(2)} ${(-width/2).toFixed(2)} ${(width + tailLength).toFixed(2)} ${width.toFixed(2)}`}
+        viewBox={`${(-width/2).toFixed(2)} ${(-width/2).toFixed(2)} ${(width * tailLength).toFixed(2)} ${width.toFixed(2)}`}
         style={{
           top: top,
           animation: `windBlow ${duration.toFixed(2)}s linear ${delay.toFixed(2)}s both`,
@@ -78,7 +78,7 @@ class WindParticle {
       >
         <line
           strokeWidth={width}
-          x1="0" y1="0" x2={tailLength} y2="0"
+          x1="0" y1="0" x2={width * tailLength} y2="0"
         />
       </svg>
     )

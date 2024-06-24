@@ -46,7 +46,7 @@
 
 @keyframes windBlow {
   from { right: 100%; }
-  to { right: -150%; }
+  to { right: -110%; }
 }
 
 .windParticle {
