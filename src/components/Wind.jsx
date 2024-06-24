@@ -3,10 +3,7 @@ import { interpolate } from "../util/interpolate.js";
 import { fancyToFixed, squared } from "../util/util.js";
 import { randomHigh, randomRange, roundRandom } from "../util/random.js";
 
-/**
- * @param {{ intensity: number }} param0
- */
-export default function Wind({ intensity }) {
+export default function Wind({ wind }) {
   const [
     /** @type {WindParticle[]} */
     particles,
@@ -16,7 +13,7 @@ export default function Wind({ intensity }) {
   const particlesIssued = useRef(0);
   const timeout = useRef(null);
 
-  particlesPerSecond.current = interpolate(intensity, 0, 1, 0, 10, squared);
+  particlesPerSecond.current = interpolate(wind, 0, 1, 0, 10, squared);
 
   useEffect(() => {
     if (!timeout.current) timeout.current = setInterval(
@@ -30,7 +27,7 @@ export default function Wind({ intensity }) {
 
     const addParticlesCount = roundRandom(particlesPerSecond.current);
     for (let i = 0; i < addParticlesCount; i++) {
-      const p = new WindParticle(particlesIssued.current++, now, intensity);
+      const p = new WindParticle(particlesIssued.current++, now, wind);
       particlesAdded.push(p);
     }
 
