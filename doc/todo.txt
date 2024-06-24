@@ -1,7 +1,22 @@
 ✅ Wind
 
-Overcast
+✅ Overcast
+✅ Fog
+
+✅ Weather System
+
+Water "spikiness" scales with wind
+Boat rocking-ness scales with wind
+High Seas
+  In very high wind, the "water level" rises and fluctuates
+
+Long phase waves
+
 Clouds
+Rain
+Lightning
+
+Existing wind particles update their speeds based on wind changes
 
 Sunrise differs from sunset
   Less red, maybe skip to orangered?
@@ -13,12 +28,7 @@ Birds
 
 Islands
 
-Rain
-Fog
 
-Lightning
-
-Weather System
 
 Sun & Moon
 
