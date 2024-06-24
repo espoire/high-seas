@@ -3,6 +3,7 @@
   width: 100dvw;
   height: 100dvh;
   margin: 0;
+  overflow: none;
 }
 
 .logo {
