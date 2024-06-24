@@ -25,8 +25,5 @@ export default class WeatherState {
       const diff = this.target[key] - this.active[key];
       this.active[key] += diff / 50;
     }
-
-    console.log('Current: ', this.active.overcast.toFixed(2));
-    // console.log('Targets: ', this.target);
   }
 }
