@@ -11,6 +11,7 @@ export default function SplashPage() {
       </a> presents:
       </p>
       <h1>High Seas</h1>
+      <br />
       <p>A programmatic art piece made with</p>
       <div>
         <a href="https://vitejs.dev" target="_blank">

@@ -7,8 +7,8 @@
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 10dvmin;
+  padding: 2.5dvmin;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -20,12 +20,8 @@
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { rotate: 0; }
+  to { rotate: 1turn; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -58,18 +54,21 @@
   animation: fade-out 2s 8s both;
 
   p {
+    font-size: min(3dvmin, 16px);
     margin: 0;
   }
 
   h1 {
     margin-block-start: 0;
-    margin-block-end: 1.33em;
+    margin-block-end: 5dvmin;
     color: skyblue;
-    filter: drop-shadow(0.05em 0.05em 0 #2b65ec);
+    filter: drop-shadow(0.3dvmin 0.3dvmin 0 #2b65ec);
+    font-size: 12dvmin;
   }
 
   h2 {
     margin-block-start: 0;
+    font-size: 7dvmin;
   }
 
   .circle {
@@ -90,6 +89,7 @@
   right: 0;
   width: fit-content;
 
+  font-size: max(min(16px, 1.5dvmin), 12px);
   text-align: right;
   background-color: #242424DB;
   border-left: 1px solid #444D;
